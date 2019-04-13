@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>zmant</title>
+
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;rss.xml">
+      
+
+      
+          <link rel="stylesheet" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;site.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">zmant</a>
+              </div>
+            </div>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2f;&#x2f;itanq.github.io">zmant</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https://itanq.github.io">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;categories">
+                                    Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;about">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;zhun-bei-gong-zuo&#x2f;">准备工作</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2016-03-01</span>
+            <span class="post__word_count">1844 Words</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <h2 id="she-zhi">设置</h2>
+<p>在我们开始实际构造这个游戏之前，我们首先需要设置一些简单的框架来处理这个游戏，这个游戏将会用到几个第三方库，它们大多数都已经在前面的教程中介绍过了。不管在那个地方需要用到新的库的时候，我们都会作出适当的介绍。</p>
+<p>首先，我们定义一个叫做<code>Game</code>的类来包含所有有关的渲染和游戏设置代码。有了这个类，我们就可以用这个类把游戏代码(稍稍的)有组织的嵌入到游戏窗口代码中。用这用方式，你就可以把相同的代码迁移到完全不同窗口库(比如 SDL或SFML)，而不需要做太多的工作。</p>
+<p id="zola-continue-reading"><a name="continue-reading"></a></p>
+<p>存在有成千上万的方式来抽象并概括游戏、图形代码/然后封装到类和对象中。在这个教程中，你刚好会看到有一个方法来解决这个问题。如果你感到有一个更好的方法，尽量实现你的改进。</p>
+<p>这个<code>Game</code>类封装了一个初始化函数，一个更新函数，一个处理输入函数以及一个渲染函数：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Game
+</span><span style="color:#eff1f5;">{
+    </span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:
+        </span><span style="color:#65737e;">// Game state
+</span><span style="color:#eff1f5;">        GameState  State;
+        GLboolean  Keys[</span><span style="color:#d08770;">1024</span><span style="color:#eff1f5;">];
+        GLuint	   Width, Height;
+        </span><span style="color:#65737e;">// Constructor/Destructor
+        </span><span style="color:#8fa1b3;">Game</span><span style="color:#eff1f5;">(GLuint </span><span style="color:#bf616a;">width</span><span style="color:#eff1f5;">, GLuint </span><span style="color:#bf616a;">height</span><span style="color:#eff1f5;">);
+        </span><span style="color:#8fa1b3;">~Game</span><span style="color:#eff1f5;">();
+        </span><span style="color:#65737e;">// Initialize game state (load all shaders/textures/levels)
+        </span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">Init</span><span style="color:#eff1f5;">();
+        </span><span style="color:#65737e;">// GameLoop
+        </span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">ProcessInput</span><span style="color:#eff1f5;">(GLfloat </span><span style="color:#bf616a;">dt</span><span style="color:#eff1f5;">);
+        </span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">Update</span><span style="color:#eff1f5;">(GLfloat </span><span style="color:#bf616a;">dt</span><span style="color:#eff1f5;">);
+        </span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">Render</span><span style="color:#eff1f5;">();
+}</span><span style="color:#c0c5ce;">;
+</span></pre>
+<p>这个类可能就是你期望中的游戏类。我们通过一个<code>width</code>和<code>height</code>(对应于你玩游戏时的设备分辨率)来初始化一个游戏实例并且使用<code>Init</code>函数来加载着色器，纹理以及初始化游戏状态。我们可以通过调用<code>ProcessInput</code>函数来使用存储在<code>Keys</code>数组里的数据来处理输入并且在<code>Update</code>函数里面更新游戏设置状态(比如玩家/球的移动)。最后，我们还可以在<code>Render</code>函数里面渲染游戏。注意，我们从渲染逻辑里面分离出了运动逻辑。</p>
+<p>这个<code>Game</code>类同样了封装了一个叫做<code>State</code>的变量，它的类型<code>GameState</code>如下定义：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">// Represents the current state of the game
+</span><span style="color:#b48ead;">enum </span><span style="color:#c0c5ce;">GameState {
+    GAME_ACTIVE,
+    GAME_MENU,
+    GAME_WIN
+};
+</span></pre>
+<p>这可以使我们跟踪游戏当前的状态。这样我们就可以根据当前游戏的状态来决定渲染或者处理不同的元素(比如当我们在游戏菜单界面的时候就可能需要渲染和处理不同的元素)。</p>
+<p>目前为止，这个<code>Game</code>类的函数还完全是空的，因为我们还没有写实际的实现代码，但这里就是<code>Game</code>类的<a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/game_setting-up.h">header</a>和<a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/game_setting-up">code</a>文件。</p>
+<h2 id="tong-yong">通用</h2>
+<p>因为我们正在开发一个大型应用，所以我们将不得不频繁的重用一些OpenGL的概念，比如纹理和着色器等。因此，为这两个元素(items)创建一个更加易用的接口就是情理之中的事了，就像在我们前面一个教程中创建的那个<code>shader</code>类一样。</p>
+<p>定义一个着色器类，它接收两个或三个字符串(如果有几何着色器)然后生成一个编译好的着色器(或者如果失败的话就生成一条错误信息)。这个着色器类同样也包含大量实用的函数来快速的设置<code>uniform</code>变量。同样也定义一个纹理类，它从给定的字节数组中生成一个2D纹理图像(基于它的内容)。并且这个纹理类同样也封装了许多实用的函数。</p>
+<p>我们并不打算钻研这些类实现的细节，因为学到这里你应该可以很容易的理解它们是如何工作的了。出于这个原因你可以找到它们的头文件和实现的代码文件，有详细的注释，如下：</p>
+<blockquote>
+<ul>
+<li>Shader : <a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/shader.h">header</a>,<a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/shader">code</a></li>
+<li>Texture: <a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/texture.h">header</a>,<a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/texture">code</a></li>
+</ul>
+</blockquote>
+<p>注意到当前的这个纹理类仅仅设置成单一的<code>2D</code>纹理，但你可以很容易的通过可选的纹理类型来扩展。</p>
+<h2 id="zi-yuan-guan-li-qi">资源管理器</h2>
+<p>当着色器和纹理类的函数被他们自己使用的时候，他们确实需要一个字节数组或是几个字符串来初始化他们。我们可以很容易的在他们自己的类里面嵌入文件来加载代码，但这就稍微有点违反<code>单一职责原则</code>，(也就是说)在这个类里我们应该仅仅关注纹理或着色器本身而不需要关注他们的文件加载结构。</p>
+<p>出于这个原因，通常用一个更加有组织的方法(来实现文件的加载)，就是创建一个叫做<code>resource manager</code>的单独实体类来加载游戏相关的资源。这里有好几个方法来实现<code>resouce manager</code>；在这个教程里我们选择使用一个单独的静态<code>resouce manager</code>(就是给它静态属性)，也就是说可以在整个工程中使用它来加载资源以及使用和她相关加载功能。</p>
+<p>使用具有静态属性的单独的类有很多好处，但它主要的坏处就是会失去<code>OOP</code>特性以及控制结构/破坏。不过，这些对于小项目来说是很容易处理的。</p>
+<p>就像其他的类文件一样，这个资源管理器的列表如下：</p>
+<blockquote>
+<ul>
+<li>Resource Manager: <a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/resource_manager.h">header</a>, <a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/resource_manager">code</a></li>
+</ul>
+</blockquote>
+<p>使用资源管理我们可以很容易的把着色器加载到程序里面，比如：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">Shader shader = </span><span style="color:#bf616a;">ResourceManager::LoadShader</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">vertex.vs</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">fragment.vs</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#d08770;">nullptr</span><span style="color:#c0c5ce;">, &quot;</span><span style="color:#a3be8c;">test</span><span style="color:#c0c5ce;">&quot;);
+</span><span style="color:#65737e;">// then use it
+</span><span style="color:#c0c5ce;">shader.</span><span style="color:#bf616a;">Use</span><span style="color:#c0c5ce;">();
+</span><span style="color:#65737e;">// or
+</span><span style="color:#8fa1b3;">ResourceManager::GetShader</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">test</span><span style="color:#c0c5ce;">&quot;).</span><span style="color:#bf616a;">Use</span><span style="color:#c0c5ce;">();
+</span></pre>
+<p>通过定义的<code>Game</code>类和<code>resouce manager</code>类一起就可以很很容易管理<code>Shader</code>和<code>Texture2D</code>，基于这个基础，在以一个教程里我们将会广泛的使用这些类来实现这个<code>Breakout</code>游戏。</p>
+<h2 id="cheng-xu">程序</h2>
+<p>对这个游戏，我们仍然需要创建一个窗口并且设置OpenGL的初识状态。我们确保使用OpenGL的<a href="http://learnopengl.com/#!Advanced-OpenGL/Face-culling">面剔除</a>功能和它的<a href="http://learnopengl.com/#!Advanced-OpenGL/Blending">混合</a>功能。我们不需要使用深度测试；因为这个游戏完全是一个二维的，所有顶点的<code>z</code>坐标都具有相同的值。因此开启深度测试并没有什么用还有可能造成<code>z-fighting</code>现象。</p>
+<p>这个<code>Breakout</code>游戏开始时候的代码相当的简单：我们用<code>GLFW</code>创建一个窗口，注册了一些回调函数，创建一个<code>Game</code>实例并且调用了<code>Game</code>类所有相关的函数。这个代码如下：</p>
+<blockquote>
+<ul>
+<li>Program: <a href="http://learnopengl.com/code_viewer.php?code=in-practice/breakout/program">code</a></li>
+</ul>
+</blockquote>
+<p>运行这个代码，你可能得到下面的输出：</p>
+<p><img src="http://learnopengl.com/img/in-practice/breakout/setting-up.png" alt="ans" /></p>
+<p>目前为止我们已经有了一个后面的教程需要的固定框架；我们将会持续的扩展这个<code>Game</code>类来封装一些新的功能。如果你准备好了就点击<a href="http://learnopengl.com/#!In-Practice/2D-Game/Rendering-Sprites">下一个</a>教程。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;tags&#x2f;opengl&#x2f;">#opengl</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;xuan-ran-jing-ling&#x2f;">渲染精灵 ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+    </body>
+
+</html>

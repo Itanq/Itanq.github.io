@@ -1,0 +1,34 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>zmant</title>
+        <link>https://itanq.github.io</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://itanq.github.io/tags/zhi-zhen/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Wed, 10 Jan 2018 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>c++原始指针</title>
+                <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/c-yuan-shi-zhi-zhen/</link>
+                <guid>https://itanq.github.io/c-yuan-shi-zhi-zhen/</guid>
+                <description>&lt;h2 id=&quot;nei-cun-zhong-de-bian-liang&quot;&gt;内存中的变量&lt;&#x2f;h2&gt;
+&lt;p&gt;为理解指针，一定需要理解C&#x2f;C++中“变量”的存储实质。考虑以下程序：&lt;&#x2f;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;span style=&quot;color:#c0c5ce;&quot;&gt;int main() {
+    char ch=&amp;#39;h&amp;#39;;
+    int i=10;
+    double d=3.14;
+
+    printf(&amp;quot;ch:%c &amp;amp;ch:%x sizeof(ch):%d \n&amp;quot;, ch, &amp;amp;ch, sizeof(ch));
+    printf(&amp;quot;i: %d &amp;amp;i: %x sizeof(i): %d \n&amp;quot;, i,  &amp;amp;i,  sizeof(i) );
+    printf(&amp;quot;d: %d &amp;amp;d: %x sizeof(d): %d \n&amp;quot;, d,  &amp;amp;d,  sizeof(d) );
+
+    return 0;
+}
+&lt;&#x2f;span&gt;&lt;&#x2f;pre&gt;</description>
+            </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,42 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>zmant</title>
+        <link>https://itanq.github.io</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://itanq.github.io/tags/opengl/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Wed, 09 Mar 2016 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>粒子系统</title>
+                <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/li-zi-xi-tong/</link>
+                <guid>https://itanq.github.io/li-zi-xi-tong/</guid>
+                <description>&lt;p&gt;一个微粒,从OpenGL的角度看就是一个总是面向摄像机方向且(通常)包含一个大部分区域是透明的纹理的小四边形.一个微粒本身主要就是一个精灵(sprite),前面我们已经早就使用过了,但是当你把成千上万个这些微粒放在一起的时候,就可以创造出令人疯狂的效果.&lt;&#x2f;p&gt;
+</description>
+            </item>
+        
+            <item>
+                <title>渲染精灵</title>
+                <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/xuan-ran-jing-ling/</link>
+                <guid>https://itanq.github.io/xuan-ran-jing-ling/</guid>
+                <description>&lt;h2 id=&quot;xuan-ran-jing-ling&quot;&gt;渲染精灵&lt;&#x2f;h2&gt;
+&lt;p&gt;为了给我们当前这个黑漆漆的游戏世界带来一点生机，我们将会渲染一些精灵(sprite)来填补一些空虚。精灵有很多种定义，但主要是指一个2D图片，它通常是和一些属性数据一起使用，比如用一些数据来表示它在世界坐标下的位置，一个旋转的角度以及一个表示二维空间的大小的变量。在2D游戏中，我们主要使用精灵来渲染图片&#x2f;纹理对象。&lt;&#x2f;p&gt;
+</description>
+            </item>
+        
+            <item>
+                <title>准备工作</title>
+                <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/zhun-bei-gong-zuo/</link>
+                <guid>https://itanq.github.io/zhun-bei-gong-zuo/</guid>
+                <description>&lt;h2 id=&quot;she-zhi&quot;&gt;设置&lt;&#x2f;h2&gt;
+&lt;p&gt;在我们开始实际构造这个游戏之前，我们首先需要设置一些简单的框架来处理这个游戏，这个游戏将会用到几个第三方库，它们大多数都已经在前面的教程中介绍过了。不管在那个地方需要用到新的库的时候，我们都会作出适当的介绍。&lt;&#x2f;p&gt;
+&lt;p&gt;首先，我们定义一个叫做&lt;code&gt;Game&lt;&#x2f;code&gt;的类来包含所有有关的渲染和游戏设置代码。有了这个类，我们就可以用这个类把游戏代码(稍稍的)有组织的嵌入到游戏窗口代码中。用这用方式，你就可以把相同的代码迁移到完全不同窗口库(比如 SDL或SFML)，而不需要做太多的工作。&lt;&#x2f;p&gt;
+</description>
+            </item>
+        
+    </channel>
+</rss>

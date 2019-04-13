@@ -1,0 +1,30 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>zmant</title>
+        <link>https://itanq.github.io</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://itanq.github.io/tags/static/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Tue, 10 Jan 2017 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>c++存储持续性、链接性</title>
+                <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/c-cun-chu-chi-xu-xing-lian-jie-xing/</link>
+                <guid>https://itanq.github.io/c-cun-chu-chi-xu-xing-lian-jie-xing/</guid>
+                <description>&lt;h1 id=&quot;cun-chu-chi-xu-xing&quot;&gt;存储持续性&lt;&#x2f;h1&gt;
+&lt;p&gt;C++有四种不同的存储持续性，其间区别就是数据保留在内存中的时间：&lt;&#x2f;p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;自动存储持续性：在函数定义中申明的变量（包括函数参数）的存储持续性为自动。它们在函数开始执行所属的代码块时被创建，离开所有的代码块时被释放。位于栈空间，由编译器自动管理。&lt;&#x2f;li&gt;
+&lt;li&gt;静态存储持续性：在函数定义外定义的变量和使用关键字&lt;code&gt;static&lt;&#x2f;code&gt;定义的变量的存储持续性为静态。在程序整个运行过程中都存在。&lt;&#x2f;li&gt;
+&lt;li&gt;动态存储持续性：由&lt;code&gt;new&lt;&#x2f;code&gt;运算符分配的内存将一直存在，直到使用&lt;code&gt;delete&lt;&#x2f;code&gt;运算符将其释放，这种内存的存储持续性为动态。位于堆空间，由程序员自己管理。&lt;&#x2f;li&gt;
+&lt;li&gt;线程存储chix持续性：由&lt;code&gt;thread_local&lt;&#x2f;code&gt;关键字申明的变量为线程存储持续性，其申明周期与所属线程一样长。&lt;&#x2f;li&gt;
+&lt;&#x2f;ul&gt;
+&lt;&#x2f;blockquote&gt;
+</description>
+            </item>
+        
+    </channel>
+</rss>

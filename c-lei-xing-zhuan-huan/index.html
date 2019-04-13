@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>zmant</title>
+
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;rss.xml">
+      
+
+      
+          <link rel="stylesheet" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;site.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">zmant</a>
+              </div>
+            </div>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2f;&#x2f;itanq.github.io">zmant</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https://itanq.github.io">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;categories">
+                                    Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;about">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-lei-xing-zhuan-huan&#x2f;">C++ 类型转换</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2017-02-10</span>
+            <span class="post__word_count">596 Words</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>C++添加了四种类型转换运算符：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">const_cast&lt;type-name&gt;(expression);
+static_cast&lt;type-name&gt;(expression);
+dynamic_cast&lt;type-name&gt;(expression);
+reinterpret_cast&lt;type-name&gt;(expression)
+</span></pre>
+<p>其中<code>type-name</code>表示转换后的类型，<code>expresion</code>表示被转换的表达式。</p>
+<p id="zola-continue-reading"><a name="continue-reading"></a></p>
+<h2 id="const-cast">const_cast</h2>
+<p>const_cast 只能用于改变值的<code>const</code>或<code>volatile</code>属性。就是把常量转为变量，把变量转为常量。也就是说它的<code>type-name</code>和<code>expression</code>类型必须相同。</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">iostream</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">High</span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Low</span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    High fuck;
+    </span><span style="color:#b48ead;">const</span><span style="color:#c0c5ce;"> High* pfuck = &amp;fuck;
+    High* ph = const_cast&lt;High*&gt;(pfuck);</span><span style="color:#65737e;">// 合法;只改变类型属性。
+</span><span style="color:#c0c5ce;">    Low* pl = const_cast&lt;Low*&gt;(pfuck);　</span><span style="color:#65737e;">// 不合法;除了改变类型属性外还改变了类型。
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
+</span></pre><h2 id="static-cast">static_cast</h2>
+<p>static_cast 用于C++内置类型之间的转换以及相互联系的自定义类之间的转换。</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">double</span><span style="color:#c0c5ce;"> d = </span><span style="color:#d08770;">5.987</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> n = static_cast&lt;</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;">&gt;(d);
+</span></pre>
+<p>假设High类是Low的基类，而Pond是一个无关的类，则从High到Low,从Low到High的转换都是合法的，而从Low或者High到Pond的转换则是不允许的。</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">iostream</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">cstdio</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">High</span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Low</span><span style="color:#eff1f5;">:</span><span style="color:#b48ead;">public </span><span style="color:#a3be8c;">High</span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Pond</span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    High bar;
+    Low blow;
+    High* ph = static_cast&lt;High*&gt;(&amp;blow);   </span><span style="color:#65737e;">//合法
+</span><span style="color:#c0c5ce;">    Low* pl = static_cast&lt;Low*&gt;(&amp;bar);      </span><span style="color:#65737e;">//合法
+    </span><span style="color:#b48ead;">const</span><span style="color:#c0c5ce;"> Low* ll = static_cast&lt;</span><span style="color:#b48ead;">const</span><span style="color:#c0c5ce;"> Low*&gt;(&amp;bar);  </span><span style="color:#65737e;">// 合法
+</span><span style="color:#c0c5ce;">    Pond* pp = static_cast&lt;Pond*&gt;(&amp;bar);            </span><span style="color:#65737e;">//不合法
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
+</span></pre><h2 id="dynamic-cast">dynamic_cast</h2>
+<p>dynamic_cast是在运行阶段进行的类型转换检查。它有几个要点:</p>
+<ul>
+<li>dynamic_cast  只能用于类之间的转换，不能用于内置类型之间的转换。</li>
+<li>dynamic_cast转换如果成功的话返回的是转换后指针或引用，转换失败的话则会返回NULL。</li>
+<li>类之间一定要有继承关系。</li>
+<li>在进行向下类型转换的时候基类必须要有虚函数。</li>
+<li>在类层次间进行上行转换时，dynamic_cast和static_cast的效果是一样的；在进行下行转换时，dynamic_cast具有类型检查的功能，比static_cast更安全。</li>
+</ul>
+<p>所谓上行转换或下行转换就是对于一颗继承树而言，从派生类到基类的转换属于上行转换，也即向上类型转换；从基类到派生类的转换属于下行转换，也即向下类型转换。</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">iostream</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">cstdio</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">High</span><span style="color:#eff1f5;">{</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:</span><span style="color:#b48ead;">virtual void </span><span style="color:#bf616a;">f</span><span style="color:#eff1f5;">(){}}</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Low</span><span style="color:#eff1f5;">:</span><span style="color:#b48ead;">public </span><span style="color:#a3be8c;">High</span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    High bar;
+    Low blow;
+
+    High* ph = dynamic_cast&lt;High*&gt;(&amp;blow); </span><span style="color:#65737e;">// up
+</span><span style="color:#c0c5ce;">    Low* pl = dynamic_cast&lt;Low*&gt;(&amp;bar); </span><span style="color:#65737e;">//down;不一定总成功。
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
+</span></pre><h2 id="reinterpret-cast">reinterpret_cast</h2>
+<p>相当于Ｃ风格的通用类型转换，任意两个类型之间都可以转换，但是不安全，很少会用。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;tags&#x2f;c&#x2f;">#c++</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-cun-chu-chi-xu-xing-lian-jie-xing&#x2f;">‹ c++存储持续性、链接性</a>
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;cong-si-xing-dai-ma-kan-you-zhi-yin-yong&#x2f;">从4行代码看右值引用 ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+    </body>
+
+</html>

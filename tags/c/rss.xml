@@ -1,0 +1,86 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>zmant</title>
+        <link>https://itanq.github.io</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://itanq.github.io/tags/c/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Wed, 10 Jan 2018 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>c++原始指针</title>
+                <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/c-yuan-shi-zhi-zhen/</link>
+                <guid>https://itanq.github.io/c-yuan-shi-zhi-zhen/</guid>
+                <description>&lt;h2 id=&quot;nei-cun-zhong-de-bian-liang&quot;&gt;内存中的变量&lt;&#x2f;h2&gt;
+&lt;p&gt;为理解指针，一定需要理解C&#x2f;C++中“变量”的存储实质。考虑以下程序：&lt;&#x2f;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;span style=&quot;color:#c0c5ce;&quot;&gt;int main() {
+    char ch=&amp;#39;h&amp;#39;;
+    int i=10;
+    double d=3.14;
+
+    printf(&amp;quot;ch:%c &amp;amp;ch:%x sizeof(ch):%d \n&amp;quot;, ch, &amp;amp;ch, sizeof(ch));
+    printf(&amp;quot;i: %d &amp;amp;i: %x sizeof(i): %d \n&amp;quot;, i,  &amp;amp;i,  sizeof(i) );
+    printf(&amp;quot;d: %d &amp;amp;d: %x sizeof(d): %d \n&amp;quot;, d,  &amp;amp;d,  sizeof(d) );
+
+    return 0;
+}
+&lt;&#x2f;span&gt;&lt;&#x2f;pre&gt;</description>
+            </item>
+        
+            <item>
+                <title>从4行代码看右值引用</title>
+                <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/cong-si-xing-dai-ma-kan-you-zhi-yin-yong/</link>
+                <guid>https://itanq.github.io/cong-si-xing-dai-ma-kan-you-zhi-yin-yong/</guid>
+                <description>&lt;p&gt;原文地址：http:&#x2f;&#x2f;www.cnblogs.com&#x2f;qicosmos&#x2f;p&#x2f;4283455.html&lt;&#x2f;p&gt;
+&lt;h3 id=&quot;gai-shu&quot;&gt;概述&lt;&#x2f;h3&gt;
+&lt;p&gt;　　右值引用的概念有些读者可能会感到陌生，其实他和C++98&#x2f;03中的左值引用有些类似，例如，c++98&#x2f;03中的左值引用是这样的：&lt;&#x2f;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;span style=&quot;color:#c0c5ce;&quot;&gt;int i = 0;
+int&amp;amp; j = i;
+&lt;&#x2f;span&gt;&lt;&#x2f;pre&gt;
+&lt;p&gt;　　这里的&lt;code&gt;int&amp;amp;&lt;&#x2f;code&gt;是对左值进行绑定（但是&lt;code&gt;int&amp;amp;&lt;&#x2f;code&gt;却不能绑定右值），相应的，对右值进行绑定的引用就是右值引用，他的语法是这样的&lt;code&gt;A&amp;amp;&amp;amp;&lt;&#x2f;code&gt;，通过双引号来表示绑定类型为A的右值。通过&lt;code&gt;&amp;amp;&amp;amp;&lt;&#x2f;code&gt;我们就可以很方便的绑定右值了，比如我们可以这样绑定一个右值：&lt;&#x2f;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;span style=&quot;color:#c0c5ce;&quot;&gt;int&amp;amp;&amp;amp; i = 0;
+&lt;&#x2f;span&gt;&lt;&#x2f;pre&gt;</description>
+            </item>
+        
+            <item>
+                <title>C++ 类型转换</title>
+                <pubDate>Fri, 10 Feb 2017 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/c-lei-xing-zhuan-huan/</link>
+                <guid>https://itanq.github.io/c-lei-xing-zhuan-huan/</guid>
+                <description>&lt;p&gt;C++添加了四种类型转换运算符：&lt;&#x2f;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;span style=&quot;color:#c0c5ce;&quot;&gt;const_cast&amp;lt;type-name&amp;gt;(expression);
+static_cast&amp;lt;type-name&amp;gt;(expression);
+dynamic_cast&amp;lt;type-name&amp;gt;(expression);
+reinterpret_cast&amp;lt;type-name&amp;gt;(expression)
+&lt;&#x2f;span&gt;&lt;&#x2f;pre&gt;
+&lt;p&gt;其中&lt;code&gt;type-name&lt;&#x2f;code&gt;表示转换后的类型，&lt;code&gt;expresion&lt;&#x2f;code&gt;表示被转换的表达式。&lt;&#x2f;p&gt;
+</description>
+            </item>
+        
+            <item>
+                <title>c++存储持续性、链接性</title>
+                <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/c-cun-chu-chi-xu-xing-lian-jie-xing/</link>
+                <guid>https://itanq.github.io/c-cun-chu-chi-xu-xing-lian-jie-xing/</guid>
+                <description>&lt;h1 id=&quot;cun-chu-chi-xu-xing&quot;&gt;存储持续性&lt;&#x2f;h1&gt;
+&lt;p&gt;C++有四种不同的存储持续性，其间区别就是数据保留在内存中的时间：&lt;&#x2f;p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;自动存储持续性：在函数定义中申明的变量（包括函数参数）的存储持续性为自动。它们在函数开始执行所属的代码块时被创建，离开所有的代码块时被释放。位于栈空间，由编译器自动管理。&lt;&#x2f;li&gt;
+&lt;li&gt;静态存储持续性：在函数定义外定义的变量和使用关键字&lt;code&gt;static&lt;&#x2f;code&gt;定义的变量的存储持续性为静态。在程序整个运行过程中都存在。&lt;&#x2f;li&gt;
+&lt;li&gt;动态存储持续性：由&lt;code&gt;new&lt;&#x2f;code&gt;运算符分配的内存将一直存在，直到使用&lt;code&gt;delete&lt;&#x2f;code&gt;运算符将其释放，这种内存的存储持续性为动态。位于堆空间，由程序员自己管理。&lt;&#x2f;li&gt;
+&lt;li&gt;线程存储chix持续性：由&lt;code&gt;thread_local&lt;&#x2f;code&gt;关键字申明的变量为线程存储持续性，其申明周期与所属线程一样长。&lt;&#x2f;li&gt;
+&lt;&#x2f;ul&gt;
+&lt;&#x2f;blockquote&gt;
+</description>
+            </item>
+        
+    </channel>
+</rss>

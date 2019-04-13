@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>zmant</title>
+        <link>https://itanq.github.io</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://itanq.github.io/categories/shu-xue/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Mon, 11 Apr 2016 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>傅里叶理论的一种直观解释</title>
+                <pubDate>Mon, 11 Apr 2016 00:00:00 +0000</pubDate>
+                <link>https://itanq.github.io/fu-li-xie-li-lun-de-yi-chong-zhi-guan-jie-shi/</link>
+                <guid>https://itanq.github.io/fu-li-xie-li-lun-de-yi-chong-zhi-guan-jie-shi/</guid>
+                <description>&lt;p&gt;傅里叶理论在数学上相当复杂。但它背后是一些漂亮而又简单的概念，这些概念相对来说要容易理解一点。你可以在其他网站上找到一些关于傅里叶理论的数学公式，我在这里只是给一种在图像应用上的直观的见解。&lt;&#x2f;p&gt;
+&lt;p&gt;**基础概念：**频率是如何表示空间的？
+**高次谐波：**震幅的影响
+**模拟类比：**光的傅里叶变换
+**傅里叶滤波：**使用傅里叶变换进行图像处理&lt;&#x2f;p&gt;
+</description>
+            </item>
+        
+    </channel>
+</rss>

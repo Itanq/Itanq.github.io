@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>zmant</title>
+
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;rss.xml">
+      
+
+      
+          <link rel="stylesheet" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;site.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">zmant</a>
+              </div>
+            </div>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2f;&#x2f;itanq.github.io">zmant</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https://itanq.github.io">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;categories">
+                                    Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;about">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+                        <div class="posts">
+                            
+                                <article class="post">
+                                    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-yuan-shi-zhi-zhen&#x2f;">c++原始指针</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2018-01-10</span>
+            <span class="post__word_count">3045 Words</span>
+            
+        </div>
+    </header>
+
+                                    <div class="post__summary">
+                                        <h2 id="nei-cun-zhong-de-bian-liang">内存中的变量</h2>
+<p>为理解指针，一定需要理解C/C++中“变量”的存储实质。考虑以下程序：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">int main() {
+    char ch=&#39;h&#39;;
+    int i=10;
+    double d=3.14;
+
+    printf(&quot;ch:%c &amp;ch:%x sizeof(ch):%d \n&quot;, ch, &amp;ch, sizeof(ch));
+    printf(&quot;i: %d &amp;i: %x sizeof(i): %d \n&quot;, i,  &amp;i,  sizeof(i) );
+    printf(&quot;d: %d &amp;d: %x sizeof(d): %d \n&quot;, d,  &amp;d,  sizeof(d) );
+
+    return 0;
+}
+</span></pre>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-yuan-shi-zhi-zhen&#x2f;">Read more...</a>
+                                    </div>
+                                </article>
+                            
+                                <article class="post">
+                                    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;cong-si-xing-dai-ma-kan-you-zhi-yin-yong&#x2f;">从4行代码看右值引用</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2017-05-10</span>
+            <span class="post__word_count">4924 Words</span>
+            
+        </div>
+    </header>
+
+                                    <div class="post__summary">
+                                        <p>原文地址：http://www.cnblogs.com/qicosmos/p/4283455.html</p>
+<h3 id="gai-shu">概述</h3>
+<p>　　右值引用的概念有些读者可能会感到陌生，其实他和C++98/03中的左值引用有些类似，例如，c++98/03中的左值引用是这样的：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">int i = 0;
+int&amp; j = i;
+</span></pre>
+<p>　　这里的<code>int&amp;</code>是对左值进行绑定（但是<code>int&amp;</code>却不能绑定右值），相应的，对右值进行绑定的引用就是右值引用，他的语法是这样的<code>A&amp;&amp;</code>，通过双引号来表示绑定类型为A的右值。通过<code>&amp;&amp;</code>我们就可以很方便的绑定右值了，比如我们可以这样绑定一个右值：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">int&amp;&amp; i = 0;
+</span></pre>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;cong-si-xing-dai-ma-kan-you-zhi-yin-yong&#x2f;">Read more...</a>
+                                    </div>
+                                </article>
+                            
+                                <article class="post">
+                                    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-lei-xing-zhuan-huan&#x2f;">C++ 类型转换</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2017-02-10</span>
+            <span class="post__word_count">596 Words</span>
+            
+        </div>
+    </header>
+
+                                    <div class="post__summary">
+                                        <p>C++添加了四种类型转换运算符：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">const_cast&lt;type-name&gt;(expression);
+static_cast&lt;type-name&gt;(expression);
+dynamic_cast&lt;type-name&gt;(expression);
+reinterpret_cast&lt;type-name&gt;(expression)
+</span></pre>
+<p>其中<code>type-name</code>表示转换后的类型，<code>expresion</code>表示被转换的表达式。</p>
+
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-lei-xing-zhuan-huan&#x2f;">Read more...</a>
+                                    </div>
+                                </article>
+                            
+                                <article class="post">
+                                    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-cun-chu-chi-xu-xing-lian-jie-xing&#x2f;">c++存储持续性、链接性</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2017-01-10</span>
+            <span class="post__word_count">1153 Words</span>
+            
+        </div>
+    </header>
+
+                                    <div class="post__summary">
+                                        <h1 id="cun-chu-chi-xu-xing">存储持续性</h1>
+<p>C++有四种不同的存储持续性，其间区别就是数据保留在内存中的时间：</p>
+<blockquote>
+<ul>
+<li>自动存储持续性：在函数定义中申明的变量（包括函数参数）的存储持续性为自动。它们在函数开始执行所属的代码块时被创建，离开所有的代码块时被释放。位于栈空间，由编译器自动管理。</li>
+<li>静态存储持续性：在函数定义外定义的变量和使用关键字<code>static</code>定义的变量的存储持续性为静态。在程序整个运行过程中都存在。</li>
+<li>动态存储持续性：由<code>new</code>运算符分配的内存将一直存在，直到使用<code>delete</code>运算符将其释放，这种内存的存储持续性为动态。位于堆空间，由程序员自己管理。</li>
+<li>线程存储chix持续性：由<code>thread_local</code>关键字申明的变量为线程存储持续性，其申明周期与所属线程一样长。</li>
+</ul>
+</blockquote>
+
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-cun-chu-chi-xu-xing-lian-jie-xing&#x2f;">Read more...</a>
+                                    </div>
+                                </article>
+                            
+                                <article class="post">
+                                    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;fu-li-xie-li-lun-de-yi-chong-zhi-guan-jie-shi&#x2f;">傅里叶理论的一种直观解释</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2016-04-11</span>
+            <span class="post__word_count">1525 Words</span>
+            
+        </div>
+    </header>
+
+                                    <div class="post__summary">
+                                        <p>傅里叶理论在数学上相当复杂。但它背后是一些漂亮而又简单的概念，这些概念相对来说要容易理解一点。你可以在其他网站上找到一些关于傅里叶理论的数学公式，我在这里只是给一种在图像应用上的直观的见解。</p>
+<p>**基础概念：**频率是如何表示空间的？
+**高次谐波：**震幅的影响
+**模拟类比：**光的傅里叶变换
+**傅里叶滤波：**使用傅里叶变换进行图像处理</p>
+
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;fu-li-xie-li-lun-de-yi-chong-zhi-guan-jie-shi&#x2f;">Read more...</a>
+                                    </div>
+                                </article>
+                            
+                        </div>
+                        <nav class="pagination">
+                            
+                            
+                                <a class="next" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;page&#x2f;2&#x2f;">Next ›</a>
+                            
+                        </nav>
+                    
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+    </body>
+
+</html>

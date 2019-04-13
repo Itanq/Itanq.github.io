@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>zmant</title>
+
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;rss.xml">
+      
+
+      
+          <link rel="stylesheet" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;site.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">zmant</a>
+              </div>
+            </div>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2f;&#x2f;itanq.github.io">zmant</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https://itanq.github.io">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;categories">
+                                    Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://itanq.github.io&#x2f;about">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-cun-chu-chi-xu-xing-lian-jie-xing&#x2f;">c++存储持续性、链接性</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2017-01-10</span>
+            <span class="post__word_count">1153 Words</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <h1 id="cun-chu-chi-xu-xing">存储持续性</h1>
+<p>C++有四种不同的存储持续性，其间区别就是数据保留在内存中的时间：</p>
+<blockquote>
+<ul>
+<li>自动存储持续性：在函数定义中申明的变量（包括函数参数）的存储持续性为自动。它们在函数开始执行所属的代码块时被创建，离开所有的代码块时被释放。位于栈空间，由编译器自动管理。</li>
+<li>静态存储持续性：在函数定义外定义的变量和使用关键字<code>static</code>定义的变量的存储持续性为静态。在程序整个运行过程中都存在。</li>
+<li>动态存储持续性：由<code>new</code>运算符分配的内存将一直存在，直到使用<code>delete</code>运算符将其释放，这种内存的存储持续性为动态。位于堆空间，由程序员自己管理。</li>
+<li>线程存储chix持续性：由<code>thread_local</code>关键字申明的变量为线程存储持续性，其申明周期与所属线程一样长。</li>
+</ul>
+</blockquote>
+<p id="zola-continue-reading"><a name="continue-reading"></a></p>
+<h1 id="bian-liang-lian-jie-xing">变量链接性</h1>
+<p>链接性描述了符号如何在不同的模块单元间共享，链接性为外部的符号可在文件间共享，链接性为内部的符号只能在其所有的一个文件中的不同函数中共享。自动存储持续性变量没有链接性，因为它们不能共享。</p>
+<p>C++为静态存储持续性变量提供了三种链接性：外部链接性（可在其他文件中访问）、内部链接性（只能在当前文件访问）和无链接性（如自动变量，只能在当前代码块访问）。</p>
+<p>创建链接性为外部的静态存储持续性变量，只需在代码块外部申明；－全局变量。
+创建链接性为内部的静态存储持续性变量，只需在代码块外部申明且加上关键字<code>static</code>即可。－全局静态变量。
+创建没有链接性的静态存储持续性变量，只需在代码块内部申明且加上关键字<code>static</code>即可。－局部静态变量。</p>
+<p>另外，对于未显示初始化的静态存储持续性变量，其所有位都将置０。</p>
+<h1 id="li-zi">例子</h1>
+<p>如果现由如下三个文件：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">// a.hpp
+
+#pragma once
+
+int test_num=123;
+void print();
+</span></pre><pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">//a.cpp
+#include &quot;a.hpp&quot;
+#include &lt;iostream&gt;
+void print()
+{
+    std::cout &lt;&lt; &quot; TTT:: &quot; &lt;&lt; test_num &lt;&lt; std::endl;
+    test_num *= 10;
+    std::cout &lt;&lt; &quot; TTT:: &quot; &lt;&lt; test_num &lt;&lt; std::endl;
+}
+</span></pre><pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">// main.cpp
+#include &quot;a.hpp&quot;
+#include &lt;iostream&gt;
+int main()
+{
+    print();
+    std::cout &lt;&lt; &quot; main::  &quot;&lt;&lt; test_num &lt;&lt; std::endl;
+    return 0;
+}
+</span></pre>
+<p>主要看a.hpp文件中的<code>test_num;</code>它在a.cpp和main.cpp中都使用了。现在它的申明方式如下：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">int test_num=123;
+</span></pre>
+<p>那么此时，变量<code>test_num</code>的链接性为外部的，那么就违反了c++的单定义规则。此时，代码编译不过，报<code>test_num</code>重复定义错误。那么若改为如下：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">static int test_num=123;
+</span></pre>
+<p>则此时变量<code>test_num</code>的链接性为内部的。此时代码输出：</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">123;
+1230;
+123;
+</span></pre>
+<p>从结果可以看到，编译出来的a.o和main.o两个文件中则是两个不同的<code>test_num</code>了。<strong>也就是说，内部链接性还意味着每个文件都有自己的一组符号，而不是共享一组符号。且每个文件中的定义都是其私有的（因为内部链接性）。</strong></p>
+<p>另外需注意：*C++中<code>const</code>限定符对默认的存储类型稍有影响。在默认情况下全局变量的链接性为外部的，但<code>const</code>全局变量的链接性为内部的。*这样做的原因是如果有一组常量就可简单的放在头文件中了，否则，根据单定义规则，只能有一个文件可以包含前面的申明，其余文件必须使用<code>extern</code>关键字来提供引用申明。</p>
+<h1 id="han-shu-lian-jie-xing">函数链接性</h1>
+<p>和变量一样，函数也有链接性。C++中不允许在函数中定义另外一个函数，因此所有函数的存储持续性皆为静态的且默认为外部链接性。可使用关键字<code>static</code>将函数链接性设为内部的，使之只能在一个文件中使用。<em>必须同时在函数申明和定义中使用该关键字。</em>
+同变量一样，在定义静态函数的文件中，静态函数将覆盖外部定义，因此即使在外部定义了同名函数，该文件仍将使用静态函数。
+单定义规则同样适用于非内联函数，所有对于链接性为外部的函数只能有一个函数定义。内联函数不受此约束。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;tags&#x2f;c&#x2f;">#c++</a>
+                    
+                        <a href="https:&#x2f;&#x2f;itanq.github.io&#x2f;tags&#x2f;static&#x2f;">#static</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;fu-li-xie-li-lun-de-yi-chong-zhi-guan-jie-shi&#x2f;">‹ 傅里叶理论的一种直观解释</a>
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;itanq.github.io&#x2f;c-lei-xing-zhuan-huan&#x2f;">C++ 类型转换 ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+    </body>
+
+</html>
