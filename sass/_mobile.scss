@@ -39,6 +39,8 @@
     float: left;
     position: relative;
     transition: background 0.5s;
+
+    @include mobile-menu-icon();
   }
 }
 

@@ -9,8 +9,8 @@ $theme-color-map: (
 );
 
 // TODO: allow to change that
-$main-colour: #689d6a;
-$secondary-colour: #ebdbb2;
+$main-colour: #c05b4d;
+$secondary-colour: #f8f5ec;
 $body-width: 800px;
 $mobile-navbar-height: 50px !default;
 $code-colour: #c7254e;
@@ -34,4 +34,5 @@ $code-font-family: Consolas, Monaco, Menlo, Consolas, monospace !default;
 @import "header";
 @import "main";
 @import "mobile";
+@import "slideout";
 @import "toc";

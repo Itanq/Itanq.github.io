@@ -3,7 +3,6 @@ main {
 
   .content {
     padding: 0 20px;
-	background: #1d2021;
   }
 
   .posts {
@@ -31,13 +30,12 @@ main {
     code {
       padding: 3px 5px;
       border-radius: 4px;
-	  white-space: pre;
       color: $code-colour;
       background: $secondary-colour;
     }
 
     p > a {
-      color: #689d6a;
+      color: $main-colour;
       word-break: break-all;
 
       &:hover {
@@ -49,7 +47,7 @@ main {
       margin: 2em 0;
       padding: 10px 20px;
       position: relative;
-      color: rgba($secondary-colour, 0.8);
+      color: rgba(#34495e, 0.8);
       background-color: rgba(192, 91, 77, .05);
       border-left: 3px solid rgba(192, 91, 77, .3);
       box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
@@ -67,15 +65,17 @@ main {
       box-shadow: 2px 2px 3px rgba(0, 0, 0, .125);
 
       thead {
-		color: $main-colour;
+        background: $secondary-colour;
       }
 
       th, td {
         padding: 5px 15px;
         border: 1px double darken($secondary-colour, 3%);
-		text-align: center;
       }
 
+      tr:hover {
+        background-color: $secondary-colour;
+      }
     }
 
     &__title {
