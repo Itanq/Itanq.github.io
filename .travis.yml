@@ -1,6 +1,6 @@
 branches:
     only:
-        - devel
+        - dev
 
 deploy:
     provider: pages
@@ -10,7 +10,7 @@ deploy:
     target_branch: master
     local-dir: public
     on:
-        branch: devel
+        branch: dev
 
 install:
   # Download and unzip the zola executable
